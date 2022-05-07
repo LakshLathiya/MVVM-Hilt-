@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav"
+    app:startDestination="@+id/city_screen">
+    <fragment
+        android:id="@+id/city_screen"
+        android:name="com.example.lakshlocus.ui.city.CityFragment"
+        tools:layout="@layout/fragment_city">
+        <action
+            android:id="@+id/action_city_screen_to_forecast"
+            app:destination="@id/forecast"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/forecast"
+        android:name="com.example.lakshlocus.ui.forecastList.ForecastListFragment"
+        tools:layout="@layout/fragment_forecast">
+        <action
+            android:id="@+id/action_forecast_to_forecast_details"
+            app:destination="@id/forecast_details"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+        <argument
+            android:name="forecast"
+            app:argType="com.example.lakshlocus.model.Forecast"
+            app:nullable="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/forecast_details"
+        android:name="com.example.lakshlocus.ui.forecastDetails.ForecastDetailsFragment"
+        tools:layout="@layout/fragment_forecast_details">
+        <argument
+            android:name="weather"
+            app:argType="com.example.lakshlocus.model.Weather"
+            app:nullable="false" />
+
+        <argument
+            android:name="mainData"
+            app:argType="com.example.lakshlocus.model.Forecast"
+            app:nullable="false" />
+    </fragment>
+</navigation>
