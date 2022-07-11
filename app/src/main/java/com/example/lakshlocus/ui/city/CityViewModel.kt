@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.lakshlocus.model.Forecast
+import com.example.lakshlocus.model.ForecastModel
 import com.example.lakshlocus.model.Resource
 import com.example.lakshlocus.repository.ForecastRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -44,7 +44,7 @@ class CityViewModel @Inject constructor(private val repository: ForecastReposito
 
         data class Error(val error: Throwable) : UiState()
 
-        data class DataState(val forecast: Response<Forecast>) : UiState()
+        data class DataState(val forecast: Response<ForecastModel>) : UiState()
 
     }
 

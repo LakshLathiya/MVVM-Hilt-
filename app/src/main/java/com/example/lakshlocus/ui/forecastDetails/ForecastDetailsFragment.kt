@@ -28,11 +28,10 @@ class ForecastDetailsFragment : Fragment() {
     }
 
     private fun initialize() {
-        (activity as AppCompatActivity?)!!.supportActionBar!!.title = args.mainData.name
-        binding.tvTemp.text = args.mainData.main.temp.toString()
-        binding.tvFeelLike.text = "Feels like: ${args.mainData.main.feels_like}"
-        binding.tvWeather.text = args.weather.main
-        binding.tvWeatherDes.text = args.weather.description
+        binding.tvTemp.text = args.forecast.main.temp.toString()
+        binding.tvFeelLike.text = "Feels like: ${args.forecast.main.feels_like}"
+        binding.tvWeather.text = args.forecast.weather.get(0).main
+        binding.tvWeatherDes.text = args.forecast.weather.get(0).description
     }
 
 }

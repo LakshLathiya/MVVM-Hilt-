@@ -1,6 +1,7 @@
 package com.example.lakshlocus.ui.city
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,7 +19,6 @@ class CityFragment : Fragment() {
 
     private lateinit var binding: FragmentCityBinding
     private val cityViewModel by viewModels<CityViewModel>()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         cityViewModel.uiState.observe(this) {
@@ -53,18 +53,22 @@ class CityFragment : Fragment() {
             is CityViewModel.UiState.DataState -> {
                 binding.progress.visibility = View.GONE
                 if (uiState.forecast.isSuccessful) {
+                    Log.e("TAG", uiState.forecast.body()!!.toString())
                     findNavController().navigate(
                         CityFragmentDirections.actionCityScreenToForecast(uiState.forecast.body()!!)
                     )
-                    binding.etCity.setText(" ")
-                } else {
-                    binding.tvError.setText("City " + uiState.forecast.message())
-                    binding.etCity.setText(" ")
+                    binding.etCity.setText("")
+                }else{
+                    binding.progress.visibility = View.GONE
+                    binding.tvError.setText(uiState.forecast.message())
+                    binding.etCity.setText("")
+                    Log.e("TAG", uiState.forecast.message())
                 }
             }
             is CityViewModel.UiState.Error -> {
                 binding.progress.visibility = View.GONE
-                binding.tvError.setText(uiState.error.message.toString())
+                binding.tvError.setText(uiState.error.message)
+                binding.etCity.setText("")
             }
             is CityViewModel.UiState.InvalidCityState -> {
                 binding.etCity.error = "Please enter valid city"

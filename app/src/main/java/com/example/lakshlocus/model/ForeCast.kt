@@ -4,7 +4,7 @@ import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-data class Coord(
-    val lat: Double,
-    val lon: Double
+data class ForeCast (
+    val main: Main,
+    val weather: List<Weather>,
 ): Parcelable

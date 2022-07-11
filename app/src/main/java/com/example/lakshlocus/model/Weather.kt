@@ -1,7 +1,7 @@
 package com.example.lakshlocus.model
 
 import android.os.Parcelable
-import kotlinx.parcelize.Parcelize
+import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class Weather(
@@ -9,4 +9,4 @@ data class Weather(
     val icon: String,
     val id: Int,
     val main: String
-) : Parcelable
+): Parcelable

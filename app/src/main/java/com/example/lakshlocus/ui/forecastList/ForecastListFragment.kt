@@ -1,6 +1,7 @@
 package com.example.lakshlocus.ui.forecastList
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -34,10 +35,12 @@ class ForecastListFragment : Fragment() {
 
     private fun initialize() {
         (activity as AppCompatActivity?)!!.supportActionBar!!.show()
-        (activity as AppCompatActivity?)!!.supportActionBar!!.title = args.forecast.name
+        (activity as AppCompatActivity?)!!.supportActionBar!!.title = args.forecast.city.name
         binding.rvWeather.adapter = weatherRVAdapter
         binding.rvWeather.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-        weatherRVAdapter.setWeatherList(args.forecast)
+        for (i in args.forecast.list.indices) {
+            weatherRVAdapter.setWeatherList(args.forecast.list.get(i))
+        }
     }
 }
