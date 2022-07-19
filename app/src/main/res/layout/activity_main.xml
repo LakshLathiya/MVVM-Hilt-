@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@android:color/background_light"
     android:orientation="vertical"
-    tools:context="com.example.lakshlocus.MainActivity">
+    tools:context="com.example.lakshlocus.ui.MainActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"

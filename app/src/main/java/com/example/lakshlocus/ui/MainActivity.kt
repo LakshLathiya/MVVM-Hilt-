@@ -1,4 +1,4 @@
-package com.example.lakshlocus
+package com.example.lakshlocus.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,6 +6,7 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupActionBarWithNavController
+import com.example.lakshlocus.R
 import com.example.lakshlocus.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
